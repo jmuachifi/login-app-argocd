@@ -60,7 +60,7 @@ jobs:
           sudo chmod +x /usr/local/bin/argocd
   
           # Log into ArgoCD using secrets
-          argocd login ${{ secrets.ARGOCD_SERVER }} --username ${{ secrets.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_PASSWORD }} --insecure
+          argocd login ${{ secrets.ARGOCD_SERVER }} --username ${{ secrets.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_PASSWORD }} --insecure --timeout 60
   
           # Sync ArgoCD application
           argocd app sync login-app-argocd
