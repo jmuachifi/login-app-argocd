@@ -8,7 +8,7 @@ image:
   repository: docker.io/jmuachifi/loginapp
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: f10178ad4601cb53a659d40f9229c4ce27ff8dc8
+  tag: 35ca2793a31da4524b3a27647dc2c52ccda053e1
 
 # imagePullSecrets: []
 nameOverride: ""
