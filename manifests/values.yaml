@@ -8,7 +8,7 @@ image:
   repository: ghcr.io/jmuachifi/loginapp
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: 3de5abf8f651154bdbb11f66697bd08b88b773ae
 
 imagePullSecrets: []
 nameOverride: ""
