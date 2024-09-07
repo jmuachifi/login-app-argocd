@@ -56,7 +56,7 @@ jobs:
       - name: Trigger ArgoCD Sync
         run: |
           # Ensure `argocd` CLI is installed
-          sudo curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/v2.4.0/argocd-linux-amd64
+          sudo curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/latest/argocd-linux-amd64
           sudo chmod +x /usr/local/bin/argocd
   
           # Log into ArgoCD using secrets
