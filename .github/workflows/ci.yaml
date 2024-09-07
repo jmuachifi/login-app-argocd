@@ -42,15 +42,14 @@ jobs:
         run: |
           git config --global user.email "jmuachifi@gmail.com"
           git config --global user.name "Jodionisio Muachifi"
-          git clone https://gitlab.com/jmuachifi/login-app-argocd.git
+          # git clone https://gitlab.com/jmuachifi/login-app-argocd.git
           ls -al
       - name: Update Helm chart with new image tag
         run: |
-          cd login-app-argocd
           sed -i "s/tag:.*/tag: ${{ github.sha }}/g" manifests/values.yaml
           git add manifests/values.yaml
           git commit -m "Update image tag to ${{ github.sha }}"
-          git push https://jmuachifi:${{ secrets.GH_PAT }}@github.com/jmuachifi/login-app-argocd.git HEAD:main
+          git push https://jmuachifi:${{ secrets.GH_PAT }}@github.com/jmuachifi/login-app-argocd.git main
 
   deploy_to_argocd:
       runs-on: ubuntu-latest
