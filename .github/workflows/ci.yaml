@@ -38,18 +38,21 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+      - name: Set up Git remote URL with PAT
+        run: |
+            git remote set-url origin https://jmuachifi:${{ secrets.GH_PAT }}@github.com/jmuachifi/login-app-argocd.git
+    
       - name: Configure Git user information
         run: |
           git config --global user.email "jmuachifi@gmail.com"
           git config --global user.name "Jodionisio Muachifi"
-          # git clone https://gitlab.com/jmuachifi/login-app-argocd.git
           ls -al
       - name: Update Helm chart with new image tag
         run: |
           sed -i "s/tag:.*/tag: ${{ github.sha }}/g" manifests/values.yaml
           git add manifests/values.yaml
           git commit -m "Update image tag to ${{ github.sha }}"
-          git push https://jmuachifi:${{ secrets.GHCR_PAT}}@github.com/jmuachifi/login-app-argocd.git main
+          git push origin HEAD:main
 
   deploy_to_argocd:
       runs-on: ubuntu-latest
