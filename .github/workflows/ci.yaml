@@ -49,7 +49,8 @@ jobs:
           sed -i "s/tag:.*/tag: ${{ github.sha }}/g" manifests/values.yaml
           git add manifests/values.yaml
           git commit -m "Update image tag to ${{ github.sha }}"
-          git push https://jmuachifi:${{ secrets.GH_PAT }}@github.com/jmuachifi/login-app-argocd.git main
+          git push origin main
+          # git push https://jmuachifi:${{ secrets.GH_PAT }}@github.com/jmuachifi/login-app-argocd.git main
 
   deploy_to_argocd:
       runs-on: ubuntu-latest
