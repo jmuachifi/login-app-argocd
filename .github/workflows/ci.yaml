@@ -23,7 +23,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t docker.io/jmuachifi/loginapp:${{ github.sha }} .
+          docker build -t docker.io/jmuachifi/loginapp:${{ github.sha }} -t docker.io/jmuachifi/loginapp:latest .
           docker push docker.io/jmuachifi/loginapp:${{ github.sha }}
           docker push docker.io/jmuachifi/loginapp:latest
 
