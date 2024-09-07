@@ -1,2 +1,2 @@
-# login-app-argocd
-Login Appp with ArgocC and K8S
+# Login Appp with ArgocC and K8S
+![](login-app-argocd.png)
