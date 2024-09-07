@@ -10,7 +10,7 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: aa4059d8e4b48298d89d2b6ed0e6218e0782c5b2
 
-imagePullSecrets: []
+# imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
