@@ -25,6 +25,7 @@ jobs:
         run: |
           docker build -t docker.io/jmuachifi/loginapp:${{ github.sha }} .
           docker push docker.io/jmuachifi/loginapp:${{ github.sha }}
+          docker push docker.io/jmuachifi/loginapp:latest
 
   update_helm_chart:
     runs-on: ubuntu-latest
