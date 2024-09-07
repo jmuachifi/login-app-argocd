@@ -1,0 +1,19 @@
+# service.yaml is the manifest file that will be used to create the service.
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: loginapp-svc
+  name: {{ .Release.Name }}-loginapp-svc
+spec:
+  ports:
+  - name: loginapp-svc
+    port: 80
+    protocol: TCP
+    targetPort: 80
+    #    nodePort: 31000
+  selector:
+    app: loginapp
+  type: {{ .Values.service.type }}
+status:
+  loadBalancer: {}

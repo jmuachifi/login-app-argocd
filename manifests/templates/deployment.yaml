@@ -1,0 +1,22 @@
+# deployment.yaml is the manifest file that will be used to create the deployment.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: loginapp
+  name: {{ .Release.Name }}-loginapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: loginapp
+  template:
+    metadata:
+      labels:
+        app: loginapp
+    spec:
+      containers:
+      - image: {{ .Values.image.repository }} 
+        name: sample
+      imagePullSecrets:
+      - name: helm-secret 
