@@ -20,3 +20,8 @@ spec:
         name: sample
       # imagePullSecrets:
       # - name: helm-secret 
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 1   # Only 1 pod will be down at a time during the update
+    maxSurge: 1         # 1 extra pod will be created while updating
