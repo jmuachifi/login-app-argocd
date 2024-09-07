@@ -16,7 +16,7 @@ spec:
         app: loginapp
     spec:
       containers:
-      - image: {{ .Values.image.repository }} 
+      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         name: sample
       # imagePullSecrets:
       # - name: helm-secret 
